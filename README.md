@@ -67,6 +67,18 @@ recalculan solos.
 WhatsApp, correo, dirección, servicios y redes viven en `src/config/site.ts`.
 El enlace de WhatsApp se genera con `whatsappUrl()`.
 
+## Deploy (site4now · IIS)
+
+El sitio se exporta como estático (`out/`) y se sube por FTP:
+
+```bash
+npm run deploy
+```
+
+Pide la contraseña FTP al ejecutarse (o usa la variable `FTP_PASSWORD`); nunca
+se guarda en el repositorio. `npm run deploy -- --dry-run` lista los archivos
+sin subir nada. Las cabeceras de caché y seguridad están en `public/web.config`.
+
 ## Variables de entorno
 
 Ver `.env.example`. Ninguna es secreta.

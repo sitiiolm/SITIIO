@@ -14,7 +14,7 @@ export const siteConfig = {
   language: 'es',
   foundedYear: 2026,
   /** Dominio público. Se define con NEXT_PUBLIC_SITE_URL al desplegar. */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sitiio.com').replace(/\/$/, ''),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sitiiolm.com').replace(/\/$/, ''),
 
   services: [
     'Landing Pages',

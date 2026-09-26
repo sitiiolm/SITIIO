@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
 
+export const dynamic = 'force-static';
+
 /** Agregar aquí cada nueva ruta pública (/proyectos, /servicios, /blog…). */
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
