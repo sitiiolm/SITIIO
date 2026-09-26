@@ -1,0 +1,48 @@
+/* ---------------------------------------------------------------------
+   PROCESS (Escena 10) — "el camino de la esfera"
+   --------------------------------------------------------------------- */
+#proceso { height: 340vh; }
+#proceso .stage { background: var(--proc-bg, #fff); color: var(--proc-fg, var(--text-primary)); }
+.proc-inner { position: relative; height: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+.proc-head { position: absolute; left: var(--gutter); right: var(--gutter); top: 15vh; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
+.proc-head h2 { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h1); line-height: 1; letter-spacing: -.02em; }
+.proc-head .label { opacity: .6; }
+.proc-head .proc-kicker { margin-bottom: 14px; }
+.proc-visual { position: absolute; left: 50%; top: 34vh; width: 300px; height: 180px; margin-left: -150px; }
+.pv { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transform: translateY(20px) scale(.95); transition: opacity .6s var(--ease-out), transform .7s var(--ease-out); }
+.pv.is-active { opacity: 1; transform: none; }
+.pv-chat { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.pv-chat span { padding: 10px 16px; border-radius: 18px 18px 18px 4px; background: #25D366; color: #06331B; font-weight: 600; font-size: 15px; }
+.pv-chat span:last-child { align-self: flex-end; border-radius: 18px 18px 4px 18px; background: var(--sitiio-gradient); color: #fff; }
+.pv-frame { width: 240px; height: 150px; border-radius: 12px; border: 2px solid currentColor; border-color: color-mix(in srgb, currentColor 30%, transparent); padding: 12px; }
+.pv-frame i { display: block; height: 12px; border-radius: 6px; margin-bottom: 8px; background: color-mix(in srgb, currentColor 18%, transparent); }
+.pv-frame i.big { height: 44px; }
+.pv-frame i.w60 { width: 60%; }
+.pv-design i { transition: background .6s; }
+.pv-design.is-active i { animation: colorize 2.2s .3s var(--ease-out) forwards; }
+.pv-design i:nth-child(2) { animation-delay: .6s !important; }
+.pv-design i:nth-child(3) { animation-delay: .9s !important; }
+@keyframes colorize { to { background: linear-gradient(90deg, #1F5BFF, #BB37F5, #FE8A2E); } }
+.pv-web .pv-frame { background: #fff; border: 0; box-shadow: 0 20px 40px -10px rgba(11,13,26,.35); }
+.pv-web i { background: #E6E4F2; }
+.pv-web i.big { background: linear-gradient(135deg, #35C9FE, #7A1FE0 50%, #E42678); }
+.pv-launch { font-family: var(--font-display); font-weight: 700; font-size: 44px; }
+.pv-launch .rocket { position: absolute; left: 50%; bottom: 10px; width: 6px; height: 120px; margin-left: -3px; border-radius: 3px; background: linear-gradient(0deg, transparent, var(--sitiio-orange), #fff); filter: drop-shadow(0 0 12px var(--sitiio-pink)); animation: rocket 1.4s var(--ease-out) infinite; }
+@keyframes rocket { from { transform: translateY(40px) scaleY(.3); opacity: 0; } 40% { opacity: 1; } to { transform: translateY(-120px) scaleY(1); opacity: 0; } }
+
+.proc-line { position: absolute; left: var(--gutter); right: var(--gutter); top: 62vh; height: 2px; }
+.proc-line .track-line { position: absolute; inset: 0; background: color-mix(in srgb, currentColor 14%, transparent); }
+.proc-line .fill-line { position: absolute; inset: 0; background: var(--sitiio-gradient); transform-origin: left; transform: scaleX(0); box-shadow: 0 0 20px rgba(187,55,245,.5); }
+.proc-traveler { position: absolute; left: 0; top: 50%; width: 44px; height: 44px; margin: -22px 0 0 -22px; z-index: 3; filter: drop-shadow(0 6px 18px rgba(122,31,224,.5)); }
+.proc-node { position: absolute; top: 50%; width: 0; }
+.proc-node .dot { position: absolute; left: -8px; top: -8px; width: 16px; height: 16px; border-radius: 50%; border: 2px solid color-mix(in srgb, currentColor 30%, transparent); background: var(--proc-bg, #fff); transition: background .4s, border-color .4s, transform .5s var(--ease-out); }
+.proc-node.is-on .dot { background: var(--sitiio-violet); border-color: var(--sitiio-violet); transform: scale(1.2); }
+.proc-node .num { position: absolute; bottom: 30px; left: 0; transform: translateX(-50%); font-family: var(--font-mono); font-weight: 500; font-size: clamp(40px, 5vw, 80px); line-height: 1; opacity: .18; transition: opacity .5s; }
+.proc-node.is-on .num { opacity: 1; }
+.proc-node .txt { position: absolute; top: 30px; left: 0; transform: translateX(-50%); width: 220px; text-align: center; opacity: .35; transition: opacity .5s; }
+.proc-node.is-on .txt { opacity: 1; }
+.proc-node .txt .label { opacity: .7; }
+.proc-node .txt strong { display: block; margin-top: 8px; font-family: var(--font-display); font-weight: 600; font-size: 20px; line-height: 1.25; }
+.proc-node .txt small { display: block; margin-top: 6px; font-size: 14px; opacity: .7; }
+.proc-node:nth-of-type(1) .num, .proc-node:nth-of-type(1) .txt { left: 0; transform: none; text-align: left; }
+.proc-node:nth-of-type(4) .num, .proc-node:nth-of-type(4) .txt { left: auto; right: 0; transform: none; text-align: right; }

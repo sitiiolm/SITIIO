@@ -1,0 +1,23 @@
+/* ---------------------------------------------------------------------
+   FINAL CTA (Escena 11) — "la esfera vuelve a casa"
+   --------------------------------------------------------------------- */
+#contacto { height: 240vh; }
+#contacto .stage { background: var(--sitiio-navy); color: var(--text-primary-dark); }
+.aurora { position: absolute; inset: 0; overflow: hidden; }
+.aurora i { position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%; filter: blur(120px); opacity: .45; animation: aurora 18s ease-in-out infinite alternate; }
+.aurora i:nth-child(1) { left: -10%; top: -20%; background: #1F5BFF; }
+.aurora i:nth-child(2) { right: -15%; top: 10%; background: #E42678; animation-duration: 22s; }
+.aurora i:nth-child(3) { left: 20%; bottom: -40%; background: #FE8A2E; animation-duration: 26s; opacity: .3; }
+@keyframes aurora { to { transform: translate(8vw, 6vh) scale(1.15); } }
+.final-inner { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 var(--gutter); }
+.final-sphere { position: relative; width: clamp(110px, 14vw, 190px); aspect-ratio: 1; margin-bottom: 4vh; }
+.final-sphere .logo-sphere { width: 100%; height: 100%; transform: scale(0); opacity: 0; will-change: transform; }
+.final-sphere .halo { position: absolute; inset: -60%; background: radial-gradient(closest-side, rgba(187,55,245,.5), transparent); opacity: 0; }
+.light-dot { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; opacity: 0; will-change: transform; background: var(--dot); box-shadow: 0 0 20px var(--dot); }
+.final-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(38px, 5.6vw, 96px); line-height: 1; letter-spacing: -.035em; max-width: 16ch; }
+.final-title .w { display: inline-block; opacity: .12; transition: opacity .4s; }
+.final-title .w.on { opacity: 1; }
+.final-sub { margin-top: 3.4vh; font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 2.6vw, 40px); color: var(--text-secondary-dark); opacity: 0; transform: translateY(16px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+.final-ctaw { margin-top: 5vh; display: flex; flex-direction: column; align-items: center; gap: 14px; opacity: 0; transform: translateY(16px); transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); }
+.final-sub.on, .final-ctaw.on { opacity: 1; transform: none; }
+.final-ctaw .label { color: var(--text-secondary-dark); }

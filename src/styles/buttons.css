@@ -1,0 +1,56 @@
+/* ---------------------------------------------------------------------
+   SISTEMA DE BOTONES
+   --------------------------------------------------------------------- */
+.btn {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 12px;
+  height: 56px; padding: 0 28px;
+  border-radius: 999px;
+  font-family: var(--font-body); font-weight: 600; font-size: 16px;
+  white-space: nowrap;
+  transition: transform .35s var(--ease-out), background-color .3s, border-color .3s, box-shadow .4s;
+  isolation: isolate;
+}
+.btn:active { transform: scale(.97); }
+.btn:focus-visible { outline: 2px solid var(--sitiio-blue); outline-offset: 3px; }
+.btn .arrow { display: inline-block; transition: transform .35s var(--ease-out); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* Primario "Glow" */
+.btn-primary { color: #fff; }
+.btn-primary::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1;
+  background: linear-gradient(90deg, #1F5BFF, #7A1FE0, #E42678, #FE8A2E, #E42678, #7A1FE0);
+  background-size: 250% 100%;
+  background-position: 0% 50%;
+  transition: background-position .8s var(--ease-out);
+}
+.btn-primary::after {
+  content: ""; position: absolute; inset: 6px -6px -10px; border-radius: inherit; z-index: -2;
+  background: var(--sitiio-gradient); filter: blur(18px); opacity: 0;
+  transition: opacity .4s;
+}
+.btn-primary:hover::before { background-position: 60% 50%; }
+.btn-primary:hover::after { opacity: .7; }
+
+/* Secundario "Ghost" */
+.btn-ghost { border: 1px solid var(--line-dark); color: var(--text-primary-dark); }
+.btn-ghost:hover { background: rgba(255,255,255,.06); }
+.btn-ghost:hover .arrow-down { animation: bounce .6s var(--ease-out); }
+.theme-light .btn-ghost { border-color: var(--line-light); color: var(--text-primary); }
+@keyframes bounce { 40% { transform: translateY(5px); } }
+
+/* Terciario "Link" */
+.btn-link {
+  position: relative; font-weight: 600; padding-bottom: 4px;
+}
+.btn-link::after {
+  content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%;
+  background: var(--sitiio-gradient); transform: scaleX(.25); transform-origin: left;
+  transition: transform .5s var(--ease-out);
+}
+.btn-link:hover::after { transform: scaleX(1); }
+
+/* CTA XL (final, magnético) */
+.btn-xl { height: 88px; padding: 0 44px; font-size: 22px; gap: 16px; }
+.btn-xl svg { width: 26px; height: 26px; }

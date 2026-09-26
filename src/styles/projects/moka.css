@@ -1,0 +1,75 @@
+/* ============ PROJECT: MOKA — Coffee Shop ============ */
+.moka { background: #F3E9DC; color: #2A1A14; font-family: var(--font-body); }
+.moka .serif { font-family: var(--font-fraunces); }
+.moka-nav { display: flex; align-items: center; justify-content: space-between; padding: 30px 64px; }
+.moka-logo { font-family: var(--font-fraunces); font-weight: 600; font-size: 30px; letter-spacing: .14em; }
+.moka-links { display: flex; gap: 36px; font-size: 16px; font-weight: 500; }
+.moka-btn { display: inline-flex; align-items: center; height: 50px; padding: 0 26px; border-radius: 999px; background: #C8643B; color: #fff; font-weight: 600; font-size: 16px; }
+.moka-btn.dark { background: #2A1A14; }
+.moka-btn.line { background: transparent; color: #2A1A14; box-shadow: inset 0 0 0 1.5px #2A1A14; }
+.moka-hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; padding: 24px 64px 64px; }
+.moka-kicker { font-size: 15px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #C8643B; }
+.moka-h1 { font-family: var(--font-fraunces); font-weight: 500; font-size: 88px; line-height: .98; letter-spacing: -.02em; margin: 18px 0 22px; }
+.moka-h1 i { color: #C8643B; }
+.moka-p { font-size: 19px; line-height: 1.55; max-width: 30ch; color: #5A4238; }
+.moka-actions { display: flex; gap: 14px; margin-top: 34px; }
+.moka-photo { height: 560px; border-radius: 32px;
+  background:
+    radial-gradient(circle at 50% 56%, #E8C9A0 0 11%, #B97A4D 11.5% 14%, transparent 14.5%),
+    radial-gradient(circle at 50% 56%, #F6EBDD 0 22%, #E4D3BF 22.5% 24%, transparent 24.5%),
+    radial-gradient(ellipse 42% 30% at 50% 60%, #FAF3EA 0 60%, #DCC7AE 61% 66%, transparent 67%),
+    radial-gradient(120% 90% at 20% 0%, #6B4430, #3A2218 60%, #24140E);
+}
+.moka-photo .heart { position: absolute; left: 50%; top: 56%; width: 44px; height: 44px; margin: -22px 0 0 -22px;
+  background: radial-gradient(circle at 30% 35%, #F6E6D2 0 30%, transparent 31%), radial-gradient(circle at 70% 35%, #F6E6D2 0 30%, transparent 31%), conic-gradient(from 135deg at 50% 88%, #F6E6D2 0 90deg, transparent 0);
+  opacity: .9; }
+.moka-photo .steam { position: absolute; left: 50%; top: 18%; width: 16px; height: 120px; border-radius: 50%; border-left: 4px solid rgba(255,255,255,.35); filter: blur(2px); }
+.moka-photo .steam.s2 { margin-left: 26px; top: 22%; height: 90px; }
+.moka-photo .steam.s1 { margin-left: -26px; }
+.moka-strip { display: flex; justify-content: space-around; padding: 22px 0; border-top: 1.5px solid #2A1A14; border-bottom: 1.5px solid #2A1A14; font-family: var(--font-fraunces); font-size: 26px; font-style: italic; }
+.moka-menu { padding: 72px 64px; }
+.moka-menu-title { font-size: 60px; font-weight: 500; letter-spacing: -.02em; margin-bottom: 36px; }
+.moka-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.moka-card { background: #FBF5EE; border-radius: 24px; padding: 22px; }
+.moka-card .ph { height: 220px; border-radius: 16px; margin-bottom: 18px; }
+.moka-card-title { font-size: 28px; font-weight: 500; }
+.moka-card .row { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; color: #7A5E52; font-size: 16px; }
+.moka-card .price { font-weight: 700; color: #2A1A14; font-size: 20px; }
+.moka-ph-espresso { background: radial-gradient(circle at 50% 55%, #3A2218 0 22%, #E4D3BF 23% 30%, transparent 31%), #C8643B; }
+.moka-ph-cappuccino { background: radial-gradient(circle at 50% 55%, #F6EBDD 0 20%, #B97A4D 21% 25%, #E4D3BF 26% 32%, transparent 33%), #6B4430; }
+.moka-ph-coldbrew { background: linear-gradient(180deg, transparent 30%, #4A2C21 30% 80%, transparent 80%) 50% 0/34% 100% no-repeat, #E4D3BF; }
+.moka-foot { background: #2A1A14; color: #F3E9DC; padding: 56px 64px; display: flex; justify-content: space-between; align-items: center; }
+.moka-foot .serif { font-size: 44px; }
+
+@container site (max-width: 600px) {
+  .moka-nav { padding: 56px 22px 16px; }
+  .moka-links { display: none; }
+  .moka-logo { font-size: 24px; }
+  .moka-btn { height: 42px; padding: 0 18px; font-size: 14px; }
+  .moka-hero { grid-template-columns: 1fr; gap: 24px; padding: 12px 22px 36px; }
+  .moka-h1 { font-size: 50px; }
+  .moka-p { font-size: 16px; }
+  .moka-actions { flex-direction: column; }
+  .moka-photo { height: 320px; order: -1; border-radius: 24px; }
+  .moka-strip { font-size: 18px; }
+  .moka-menu { padding: 40px 22px; }
+  .moka-cards { grid-template-columns: 1fr; }
+  .moka-foot { flex-direction: column; align-items: flex-start; gap: 16px; padding: 36px 22px; }
+  .moka-foot .serif { font-size: 32px; }
+}
+
+/* Tarjetas flotantes de MOKA */
+.fcard .moka-check { background: #C8643B; }
+.fcard-moka-product { text-align: center; width: 170px; }
+.fcard-moka-product.fcard strong { font-family: var(--font-fraunces); }
+.fcard-moka-product .pill { background: #2A1A14; color: #F3E9DC; }
+
+/* Taza MOKA con vapor (flotante) */
+.cup { position: relative; width: 84px; height: 84px; margin: 4px auto 10px; }
+.cup .body { position: absolute; left: 10px; right: 18px; bottom: 6px; height: 50px; border-radius: 6px 6px 24px 24px; background: linear-gradient(180deg, #FBF5EE, #E4D3BF); box-shadow: inset 0 6px 0 #4A2C21; }
+.cup .handle { position: absolute; right: 6px; bottom: 22px; width: 20px; height: 22px; border: 5px solid #E4D3BF; border-left: 0; border-radius: 0 12px 12px 0; }
+.cup .steam { position: absolute; bottom: 54px; width: 6px; height: 26px; border-radius: 6px; background: rgba(200,100,59,.35); animation: steam 2.4s ease-in-out infinite; }
+.cup .steam:nth-child(3) { left: 26px; }
+.cup .steam:nth-child(4) { left: 40px; animation-delay: .6s; }
+.cup .steam:nth-child(5) { left: 54px; animation-delay: 1.2s; }
+@keyframes steam { 0% { transform: translateY(8px) scaleY(.6); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-14px) scaleY(1.1); opacity: 0; } }

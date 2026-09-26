@@ -1,0 +1,111 @@
+/* ---------------------------------------------------------------------
+   SERVICES (Escena 09) — "el índice gigante"
+   --------------------------------------------------------------------- */
+.services {
+  position: relative; background: var(--background-light); color: var(--text-primary);
+  padding: 22vh 0 18vh;
+  background-image: radial-gradient(rgba(230,228,242,.9) 1.2px, transparent 1.3px);
+  background-size: 32px 32px;
+}
+.section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 10vh; }
+.section-head h2 { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h1); line-height: 1; letter-spacing: -.02em; max-width: 14ch; }
+.section-head p { max-width: 32ch; color: var(--text-secondary); font-size: var(--fs-body-l); }
+.section-head .section-kicker { margin-bottom: 18px; }
+.services-body { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; align-items: start; }
+.svc { position: relative; display: grid; grid-template-columns: 56px 1fr; align-items: baseline; padding: 3.4vh 0; border-top: 1px solid var(--line-light); }
+.svc:last-child { border-bottom: 1px solid var(--line-light); }
+.svc-num { font-family: var(--font-mono); font-weight: 500; font-size: 14px; color: var(--text-secondary); }
+.svc-word {
+  position: relative; display: inline-block;
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(34px, 5.3vw, 84px); line-height: .95; letter-spacing: -.03em;
+  white-space: nowrap;
+  color: rgba(11,13,26,.12);
+  transition: color .5s var(--ease-out), transform .7s var(--ease-out);
+}
+.svc-word .fill {
+  position: absolute; inset: 0; white-space: nowrap;
+  background: linear-gradient(90deg, var(--text-primary) 0 55%, #7A1FE0 70%, #E42678 85%, #FE8A2E 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+  clip-path: inset(0 calc(100% - var(--fill, 0%)) 0 0);
+}
+.svc.is-active .svc-word { transform: translateX(1.4vw); }
+.svc-meta { grid-column: 2; display: flex; gap: 24px; align-items: baseline; margin-top: 10px; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .6s var(--ease-out), opacity .5s; }
+.svc.is-active .svc-meta { max-height: 60px; opacity: 1; }
+.svc-meta .label { color: var(--text-secondary); }
+.svc-meta p { font-size: 17px; font-weight: 500; }
+
+.svc-visual-wrap { position: sticky; top: 22vh; }
+.svc-visual {
+  position: relative; aspect-ratio: 1; border-radius: 28px; overflow: hidden;
+  background: var(--sitiio-navy);
+  box-shadow: 0 50px 90px -30px rgba(42,31,208,.35);
+  transform: perspective(900px) rotateX(var(--vy, 0deg)) rotateY(var(--vx, 0deg));
+  transition: transform .8s var(--ease-out);
+}
+.svc-visual::before { content: ""; position: absolute; inset: -20%; background: radial-gradient(40% 40% at 30% 30%, rgba(31,91,255,.35), transparent), radial-gradient(40% 40% at 75% 75%, rgba(228,38,120,.35), transparent); }
+.viz { position: absolute; inset: 0; opacity: 0; transform: scale(.94); transition: opacity .6s var(--ease-out), transform .8s var(--ease-out); }
+.viz.is-active { opacity: 1; transform: none; }
+.viz-caption { position: absolute; left: 22px; bottom: 18px; color: var(--text-secondary-dark); z-index: 2; }
+
+/* Viz 01 — Landing: página larga que se desplaza sola + botón que pulsa */
+.v-landing .page { position: absolute; left: 22%; right: 22%; top: 12%; bottom: 0; border-radius: 14px 14px 0 0; background: #fff; overflow: hidden; }
+.v-landing .page-in { position: absolute; inset: 0 0 auto; padding: 14px; animation: landing-scroll 6s var(--ease-in-out) infinite alternate; }
+.v-landing .b { height: 10px; border-radius: 5px; background: #E6E4F2; margin-bottom: 8px; }
+.v-landing .b.h { height: 22px; width: 80%; background: #0B0D1A; }
+.v-landing .b.img { height: 90px; border-radius: 10px; background: linear-gradient(135deg, #BB37F5, #FE8A2E); }
+.v-landing .b.img.cool { background: linear-gradient(135deg, #35C9FE, #1F5BFF); }
+.v-landing .b.w70 { width: 70%; }
+.v-landing .b.w60 { width: 60%; }
+.v-landing .cta { height: 28px; width: 60%; border-radius: 14px; background: var(--sitiio-gradient); margin: 12px 0; animation: pulse 1.6s ease-in-out infinite; }
+@keyframes landing-scroll { to { transform: translateY(-45%); } }
+@keyframes pulse { 50% { transform: scale(1.06); box-shadow: 0 0 20px rgba(228,38,120,.6); } }
+
+/* Viz 02 — Corporativas: cuadrícula de páginas que se ordena */
+.v-corp .pg { position: absolute; width: 30%; height: 38%; border-radius: 10px; background: #fff; padding: 10px; animation: corp 5s var(--ease-in-out) infinite alternate; }
+.v-corp .pg::before { content: ""; display: block; height: 40%; border-radius: 6px; background: linear-gradient(135deg, #1F5BFF, #BB37F5); margin-bottom: 8px; }
+.v-corp .pg::after { content: ""; display: block; height: 8px; width: 70%; border-radius: 4px; background: #E6E4F2; box-shadow: 0 14px 0 #E6E4F2; }
+.v-corp .pg:nth-child(1) { left: 14%; top: 14%; --dx: 20px; --dy: 30px; --r: -8deg; }
+.v-corp .pg:nth-child(2) { left: 35%; top: 12%; --dx: -10px; --dy: 50px; --r: 6deg; }
+.v-corp .pg:nth-child(3) { left: 56%; top: 16%; --dx: -30px; --dy: 20px; --r: 10deg; }
+.v-corp .pg:nth-child(4) { left: 24%; top: 54%; --dx: 30px; --dy: -30px; --r: 8deg; }
+.v-corp .pg:nth-child(5) { left: 46%; top: 54%; --dx: -20px; --dy: -40px; --r: -6deg; }
+@keyframes corp { from { transform: translate(var(--dx), var(--dy)) rotate(var(--r)); } to { transform: none; } }
+
+/* Viz 03 — E-commerce: carrito que recibe productos */
+.v-shop .cart { position: absolute; left: 30%; right: 30%; bottom: 18%; height: 26%; border: 5px solid #fff; border-top: 0; border-radius: 0 0 18px 18px; }
+.v-shop .cart::after { content: ""; position: absolute; left: -26px; top: -20px; width: 30px; height: 5px; background: #fff; border-radius: 3px; transform: rotate(20deg); }
+.v-shop .item { position: absolute; top: -10%; width: 44px; height: 44px; border-radius: 12px; animation: drop 3s var(--ease-in-out) infinite; }
+.v-shop .item:nth-child(2) { left: 38%; background: #C6F432; }
+.v-shop .item:nth-child(3) { left: 50%; background: #B69CFF; animation-delay: 1s; }
+.v-shop .item:nth-child(4) { left: 44%; background: var(--sitiio-orange); animation-delay: 2s; }
+@keyframes drop { 0% { transform: translateY(0) rotate(0); opacity: 0; } 15% { opacity: 1; } 70% { transform: translateY(330%) rotate(60deg); opacity: 1; } 100% { transform: translateY(360%) rotate(80deg); opacity: 0; } }
+.v-shop .badge { position: absolute; right: 26%; bottom: 40%; width: 34px; height: 34px; border-radius: 50%; background: var(--sitiio-gradient); color: #fff; font-weight: 800; display: grid; place-items: center; }
+
+/* Viz 04 — Portafolios: galería en abanico */
+.v-folio .ph2 { position: absolute; left: 50%; top: 52%; width: 38%; height: 50%; margin: -25% 0 0 -19%; border-radius: 12px; transform-origin: 50% 120%; animation: fan 4s var(--ease-in-out) infinite alternate; box-shadow: 0 20px 40px rgba(0,0,0,.35); }
+.v-folio .ph2:nth-child(1) { background: linear-gradient(160deg, #35C9FE, #1F5BFF); --r: -24deg; }
+.v-folio .ph2:nth-child(2) { background: linear-gradient(160deg, #BB37F5, #6A0BBB); --r: -8deg; }
+.v-folio .ph2:nth-child(3) { background: linear-gradient(160deg, #FD6CAC, #E42678); --r: 8deg; }
+.v-folio .ph2:nth-child(4) { background: linear-gradient(160deg, #FFD43D, #FE8A2E); --r: 24deg; }
+@keyframes fan { from { transform: rotate(0); } to { transform: rotate(var(--r)); } }
+
+/* Viz 05 — A medida: código que se convierte en interfaz */
+.v-code .code { position: absolute; left: 12%; top: 18%; width: 40%; font: 500 13px/1.9 var(--font-mono); color: #A6A8C8; }
+.v-code .code b { color: var(--sitiio-pink); font-weight: 500; }
+.v-code .code i { color: var(--sitiio-cyan); font-style: normal; }
+.v-code .ui { position: absolute; right: 12%; top: 22%; width: 34%; }
+.v-code .ui div { height: 26px; border-radius: 8px; background: #fff; margin-bottom: 10px; transform-origin: left; animation: build 3.6s var(--ease-out) infinite; }
+.v-code .ui div:nth-child(1) { width: 70%; background: var(--sitiio-gradient); }
+.v-code .ui div:nth-child(2) { height: 70px; animation-delay: .4s; }
+.v-code .ui div:nth-child(3) { width: 50%; animation-delay: .8s; }
+@keyframes build { 0% { transform: scaleX(0); opacity: 0; } 25%, 80% { transform: scaleX(1); opacity: 1; } 100% { opacity: 0; } }
+
+/* Viz 06 — Responsive: laptop → tablet → teléfono */
+.v-resp .dev { position: absolute; left: 50%; top: 50%; border: 5px solid #fff; border-radius: 14px; transform: translate(-50%, -50%); animation: morph 6s var(--ease-in-out) infinite; background: linear-gradient(135deg, rgba(31,91,255,.5), rgba(228,38,120,.5)); }
+.v-resp .dev::before { content: ""; position: absolute; left: 10%; right: 10%; top: 12%; height: 18%; border-radius: 6px; background: #fff; }
+@keyframes morph {
+  0%, 20% { width: 64%; height: 42%; }
+  33%, 53% { width: 44%; height: 56%; }
+  66%, 86% { width: 24%; height: 50%; border-radius: 18px; }
+  100% { width: 64%; height: 42%; }
+}

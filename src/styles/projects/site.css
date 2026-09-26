@@ -1,0 +1,20 @@
+/* ---------------------------------------------------------------------
+   MINI-SITES DE PROYECTOS
+   Cada .site es una web completa en miniatura (canvas 1280×800).
+   Usa container queries: la MISMA web se reacomoda dentro del teléfono
+   (canvas 390px), así se demuestra el diseño responsive.
+   Todas las "fotos" son ASSETS TEMPORALES dibujados con CSS.
+   --------------------------------------------------------------------- */
+.site {
+  position: absolute; inset: 0; overflow: hidden;
+  container-type: inline-size; container-name: site;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.site-scroll { will-change: transform; }
+.ph { position: relative; overflow: hidden; } /* placeholder de imagen */
+.ph::after { /* etiqueta discreta de asset temporal */
+  content: attr(data-asset); position: absolute; right: 10px; bottom: 8px;
+  font: 500 10px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.55); background: rgba(0,0,0,.18); padding: 4px 6px; border-radius: 4px;
+}

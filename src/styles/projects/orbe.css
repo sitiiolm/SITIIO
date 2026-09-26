@@ -1,0 +1,62 @@
+/* ============ PROJECT: ECOMMERCE — ORBE ============ */
+.orbe { background: #F2F2EC; color: #0B0B0B; }
+.orbe .wide { font-family: var(--font-unbounded); }
+.orbe-bar { background: #0B0B0B; color: #C6F432; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: .12em; padding: 10px; }
+.orbe-nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 40px; }
+.orbe-logo { font-family: var(--font-unbounded); font-weight: 800; font-size: 30px; letter-spacing: -.02em; }
+.orbe-links { display: flex; gap: 30px; font-weight: 600; font-size: 16px; }
+.orbe-icons { display: flex; gap: 16px; align-items: center; }
+.orbe-icon { width: 46px; height: 46px; border-radius: 50%; background: #fff; display: grid; place-items: center; position: relative; }
+.orbe-icon svg { width: 20px; height: 20px; }
+.orbe-badge { position: absolute; top: -4px; right: -4px; min-width: 22px; height: 22px; border-radius: 11px; background: #B69CFF; color: #0B0B0B; font-size: 12px; font-weight: 800; display: grid; place-items: center; transition: transform .4s var(--ease-out); }
+.orbe-badge.pop { transform: scale(1.35); }
+.orbe-hero { margin: 4px 24px 0; border-radius: 36px; background: #C6F432; display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; padding: 44px 56px; min-height: 540px; position: relative; overflow: hidden; }
+.orbe-tag { display: inline-block; padding: 8px 14px; border-radius: 999px; background: #0B0B0B; color: #C6F432; font-size: 13px; font-weight: 700; letter-spacing: .1em; }
+.orbe-h1 { font-family: var(--font-unbounded); font-weight: 800; font-size: 118px; line-height: .88; letter-spacing: -.04em; margin: 22px 0 18px; }
+.orbe-hero p { font-size: 19px; max-width: 26ch; font-weight: 500; }
+.orbe-actions { display: flex; gap: 12px; margin-top: 28px; }
+.orbe-btn { height: 56px; padding: 0 28px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px; background: #0B0B0B; color: #fff; font-weight: 700; font-size: 16px; }
+.orbe-btn.alt { background: transparent; color: #0B0B0B; box-shadow: inset 0 0 0 2px #0B0B0B; }
+.orbe-product { position: relative; height: 440px; }
+.orbe-product .disc { position: absolute; inset: 20px 30px; border-radius: 50%; background: #B69CFF; }
+/* Producto (TEMP ASSET): zapatilla abstracta con formas CSS */
+.orbe-product .shoe { position: absolute; left: 12%; right: 6%; top: 42%; height: 120px; border-radius: 120px 60px 40px 30px; background: linear-gradient(180deg, #fff 0 62%, #0B0B0B 62% 74%, #fff 74%); transform: rotate(-14deg); box-shadow: 0 30px 40px -10px rgba(0,0,0,.35); }
+.orbe-product .shoe::before { content: ""; position: absolute; left: 8%; top: -44%; width: 46%; height: 80%; border-radius: 80px 80px 10px 10px; background: #0B0B0B; }
+.orbe-product .shoe::after { content: ""; position: absolute; left: 55%; top: 16%; width: 30%; height: 20%; border-radius: 20px; background: #C6F432; }
+.orbe-price { position: absolute; right: 14%; top: 12%; width: 110px; height: 110px; border-radius: 50%; background: #0B0B0B; color: #C6F432; display: grid; place-items: center; font-family: var(--font-unbounded); font-weight: 800; font-size: 30px; transform: rotate(12deg); }
+.orbe-grid { padding: 56px 24px 40px; }
+.orbe-grid .head { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 16px 24px; }
+.orbe-grid-title { font-size: 44px; font-weight: 700; letter-spacing: -.03em; }
+.orbe-see-all { font-weight: 700; }
+.orbe-products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.orbe-card { background: #fff; border-radius: 24px; padding: 14px; }
+.orbe-card .ph { height: 210px; border-radius: 16px; margin-bottom: 14px; }
+.orbe-card .ph::before { content: ""; position: absolute; left: 50%; top: 50%; width: 46%; height: 46%; transform: translate(-50%, -50%) rotate(-10deg); border-radius: 40% 60% 50% 50%; background: rgba(11,11,11,.85); }
+.orbe-card .n { font-weight: 700; font-size: 17px; }
+.orbe-card .row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.orbe-card .p { font-family: var(--font-unbounded); font-weight: 700; font-size: 18px; }
+.orbe-add { height: 38px; padding: 0 14px; border-radius: 999px; background: #0B0B0B; color: #fff; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; transition: background .3s, color .3s; }
+.orbe-add.done { background: #C6F432; color: #0B0B0B; }
+
+@container site (max-width: 600px) {
+  .orbe-bar { padding-top: 44px; font-size: 11px; }
+  .orbe-nav { padding: 16px 18px; }
+  .orbe-links { display: none; }
+  .orbe-logo { font-size: 24px; }
+  .orbe-hero { grid-template-columns: 1fr; margin: 0 12px; padding: 26px 22px; border-radius: 28px; min-height: 0; }
+  .orbe-h1 { font-size: 64px; }
+  .orbe-hero p { font-size: 15px; }
+  .orbe-actions { flex-direction: column; }
+  .orbe-product { height: 260px; order: -1; }
+  .orbe-price { width: 80px; height: 80px; font-size: 22px; }
+  .orbe-grid { padding: 30px 12px; }
+  .orbe-products { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .orbe-card .ph { height: 140px; }
+  .orbe-card .n { font-size: 14px; }
+  .orbe-card .p { font-size: 14px; }
+  .orbe-add { height: 32px; padding: 0 10px; font-size: 11px; }
+}
+
+/* Tarjeta flotante de ORBE */
+.fcard-orbe-total { font-family: var(--font-unbounded); font-weight: 800; font-size: 22px; margin-top: 6px; }
+.fcard .orbe-pill { background: #C6F432; color: #0B0B0B; }

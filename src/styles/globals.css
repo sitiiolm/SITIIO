@@ -1,0 +1,17 @@
+/* =====================================================================
+   SITIIO — estilos globales
+   El orden de importación replica el orden de la cascada del prototipo
+   aprobado (docs/reference/sitiio-prototype.html). No reordenar.
+   ===================================================================== */
+@import './fonts.css';
+@import './tokens.css';
+@import './base.css';
+@import './utilities.css';
+@import './buttons.css';
+@import './loader.css';
+@import './navbar.css';
+
+/* Respeto a "movimiento reducido" */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

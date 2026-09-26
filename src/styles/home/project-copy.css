@@ -1,0 +1,36 @@
+/* ---------------------------------------------------------------------
+   COPY LATERAL DE PROYECTOS + INDICADOR
+   --------------------------------------------------------------------- */
+.proj-copy {
+  position: absolute; z-index: 7;
+  left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  top: 50%; transform: translateY(-50%);
+  width: min(36vw, 460px);
+  pointer-events: none;
+}
+.proj-copy .meta { display: flex; gap: 14px; align-items: center; opacity: .75; }
+.proj-copy .meta .sep { width: 24px; height: 1px; background: currentColor; opacity: .5; }
+.counter { display: inline-flex; height: 1.2em; overflow: hidden; }
+.counter .roll { display: flex; flex-direction: column; transition: transform .8s var(--ease-out); }
+.proj-items { position: relative; margin-top: 20px; min-height: 360px; }
+.proj-item { position: absolute; inset: 0; }
+.proj-item .line > span { transform: translateY(var(--y, 105%)); transition: none; }
+.proj-name { font-size: clamp(48px, 5.4vw, 84px); line-height: .95; letter-spacing: -.01em; }
+.proj-rubro { margin-top: 12px; opacity: .7; }
+.proj-phrase { margin-top: 20px; font-size: var(--fs-body-l); line-height: 1.5; max-width: 26ch; opacity: .85; }
+.proj-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.proj-tags > .line > span { display: flex; flex-wrap: wrap; gap: 8px; }
+.proj-tags .tag { padding: 7px 12px; border-radius: 999px; border: 1px solid currentColor; border-color: color-mix(in srgb, currentColor 22%, transparent); font-size: 13px; font-weight: 500; }
+.proj-link { display: inline-block; margin-top: 26px; pointer-events: auto; }
+
+/* Indicador lateral: segmentos + "01 / 04 · MOKA" */
+.proj-progress {
+  position: absolute; z-index: 7; right: var(--gutter); top: 50%;
+  transform: translateY(-50%);
+  display: flex; align-items: center; gap: 16px;
+  opacity: 0;
+}
+.proj-progress .segs { display: flex; flex-direction: column; gap: 8px; }
+.proj-progress .seg { position: relative; width: 3px; height: 44px; border-radius: 2px; background: color-mix(in srgb, currentColor 18%, transparent); overflow: hidden; }
+.proj-progress .seg i { position: absolute; inset: 0; transform-origin: top; transform: scaleY(0); background: var(--proj-accent, var(--sitiio-violet)); }
+.proj-progress .now { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; }

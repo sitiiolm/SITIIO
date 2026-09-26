@@ -1,0 +1,109 @@
+/* ---------------------------------------------------------------------
+   RESPONSIVE
+   Tablet: se conserva casi todo; copy de proyectos debajo del dispositivo.
+   Mobile: teléfono como dispositivo protagonista, animaciones simplificadas.
+   (Las reglas del navbar viven en src/styles/navbar.css)
+   --------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+  .proj-copy { left: 50%; top: auto; bottom: 3vh; transform: translateX(-50%); width: min(86vw, 640px); text-align: center; }
+  .proj-copy .meta { justify-content: center; }
+  .proj-items { min-height: 150px; margin-top: 8px; }
+  .proj-name { font-size: clamp(40px, 7vw, 64px); }
+  .proj-phrase { margin: 12px auto 0; font-size: 16px; }
+  .proj-tags, .proj-link { display: none; }
+  .fcards { display: none; }
+  .services-body { grid-template-columns: 1.4fr 1fr; }
+}
+@media (max-width: 767px) {
+  .hero-copy { top: auto; bottom: 90px; transform: none; }
+  .hero-title { font-size: clamp(44px, 12.5vw, 64px); }
+  .hero-title .line { white-space: normal; }
+  .hero-sub { margin-top: 18px; font-size: 16px; }
+  .hero-ctas { margin-top: 24px; flex-direction: column; }
+  .hero-ctas .btn { width: 100%; justify-content: center; height: 52px; }
+  .hero-meta { bottom: 20px; font-size: 11px; }
+  .hero-meta .scroll-hint .label { display: none; }
+  .story-line { top: 16%; }
+  .proj-copy { top: 84px; bottom: auto; }
+  .proj-copy .meta { font-size: 11px; }
+  .proj-items { min-height: 150px; }
+  .proj-name { font-size: 44px; }
+  .proj-rubro { margin-top: 6px; }
+  .proj-phrase { font-size: 15px; margin-top: 8px; }
+  .proj-progress { right: 12px; }
+  .proj-progress .now { display: none; }
+
+  .services { padding: 14vh 0 12vh; }
+  .section-head { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 4vh; }
+  .services-body { grid-template-columns: 1fr; gap: 0; }
+  .svc-visual-wrap { position: sticky; top: 76px; z-index: 2; order: -1; margin-bottom: 16px; }
+  .svc-visual { aspect-ratio: auto; height: 170px; border-radius: 20px; }
+  .svc { grid-template-columns: 36px 1fr; padding: 3vh 0; }
+  .svc-word { font-size: clamp(24px, 7.4vw, 40px); }
+  .svc-meta { flex-direction: column; gap: 4px; }
+  .svc.is-active .svc-meta { max-height: 90px; }
+  .svc-meta p { font-size: 15px; }
+
+  #proceso { height: 300vh; }
+  .proc-head { top: 92px; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .proc-visual { display: none; }
+  .proc-line { left: 36px; right: auto; top: 30vh; bottom: 18vh; width: 2px; height: auto; }
+  .proc-line .fill-line { transform-origin: top; transform: scaleY(0); }
+  .proc-traveler { left: 50%; top: 0; width: 36px; height: 36px; margin: -18px 0 0 -18px; }
+  .proc-node { left: 0 !important; width: 0; }
+  .proc-node:nth-of-type(1) { top: 0%; }
+  .proc-node:nth-of-type(2) { top: 33.333%; }
+  .proc-node:nth-of-type(3) { top: 66.666%; }
+  .proc-node:nth-of-type(4) { top: 100%; }
+  .proc-node .num { bottom: auto !important; top: -18px; left: 26px !important; right: auto !important; transform: none !important; font-size: 30px; }
+  .proc-node .txt { top: 16px; left: 26px !important; right: auto !important; transform: none !important; text-align: left !important; width: 64vw; }
+  .proc-node .txt strong { font-size: 17px; margin-top: 2px; }
+
+  .final-inner { padding-bottom: 8vh; }
+  .site-footer { padding-top: 12vh; }
+  .contact-strip { grid-template-columns: 1fr; }
+  .contact-item { padding: 18px 4px; }
+  .contact-item + .contact-item { border-left: 0; border-top: 1px solid var(--line-dark); }
+  .btn-xl { height: 64px; padding: 0 28px; font-size: 18px; width: 100%; justify-content: center; }
+  .final-ctaw { width: 100%; }
+  .footer-row { flex-direction: column; align-items: flex-start; gap: 8px; font-size: 13px; }
+}
+
+/* Fundido suave entre la escena final (aurora) y la franja de dirección */
+#contacto .stage::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22vh; z-index: 1; pointer-events: none; background: linear-gradient(180deg, transparent, var(--sitiio-navy)); }
+
+/* SCROLL CUE de la escena final → "hay más abajo" */
+.more-cue {
+  margin-top: 6vh;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--text-secondary-dark);
+  opacity: 0; transform: translateY(12px); pointer-events: none;
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out), color .3s;
+}
+.more-cue.on { opacity: 1; transform: none; pointer-events: auto; }
+.more-cue:hover { color: #fff; }
+.more-cue-icon {
+  position: relative; width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.22);
+  animation: cue-bob 1.8s var(--ease-in-out) infinite;
+}
+.more-cue-icon::after { /* anillo con el degradado de marca */
+  content: ""; position: absolute; inset: -1px; border-radius: 50%; padding: 1px;
+  background: var(--sitiio-gradient);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: .8;
+}
+.more-cue-icon svg { width: 18px; height: 18px; }
+@keyframes cue-bob { 50% { transform: translateY(6px); } }
+@media (max-width: 767px) { .more-cue { margin-top: 5vh; } .more-cue .label { font-size: 11px; } }
+
+/* Pantallas de laptop (hasta 940px de alto): compactar la escena final */
+@media (max-height: 940px) and (min-width: 768px) {
+  .final-sphere { width: clamp(80px, 9vh, 120px); margin-bottom: 2.4vh; }
+  .final-title { font-size: clamp(34px, 7.4vh, 72px); }
+  .final-sub { margin-top: 2.4vh; font-size: clamp(20px, 3.6vh, 32px); }
+  .final-ctaw { margin-top: 3.6vh; }
+  .btn-xl { height: 72px; font-size: 20px; }
+  .more-cue { margin-top: 4vh; }
+}

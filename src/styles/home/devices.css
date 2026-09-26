@@ -1,0 +1,131 @@
+/* ---------------------------------------------------------------------
+   LAPTOP MOCKUP (CSS 3D, sin marca, aluminio grafito)
+   Medidas base sin escalar: tapa 860×550, pantalla 824×515 (16:10).
+   El motor aplica: posición, escala, rotación de cámara y ángulo de tapa.
+   --------------------------------------------------------------------- */
+.scene3d {
+  position: absolute; inset: 0; z-index: 2;
+  perspective: 2400px; perspective-origin: 50% 40%;
+  pointer-events: none;
+}
+.laptop {
+  position: absolute; left: 50%; top: 50%;
+  width: 900px; height: 550px; margin: -275px 0 0 -450px;
+  transform-style: preserve-3d;
+  transform-origin: 50% 100%;
+  will-change: transform;
+  pointer-events: auto;
+  /* IMPORTANTE: no aplicar opacity/filter a .laptop (aplana el 3D).
+     El fundido se aplica a cada cara (.laptop-part) desde el motor. */
+}
+.laptop-base {
+  position: absolute; left: 0; top: 553px; width: 900px; height: 560px;
+  transform-origin: 50% 0;
+  transform: rotateX(90deg);
+  border-radius: 6px 6px 26px 26px;
+  background: linear-gradient(180deg, #2A2E42 0%, #1D2032 55%, #171A29 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+}
+.laptop-base::before { /* teclado */
+  content: ""; position: absolute; left: 90px; right: 90px; top: 40px; height: 250px;
+  border-radius: 10px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 46px, #10121E 46px 52px),
+    repeating-linear-gradient(0deg, transparent 0 44px, #10121E 44px 50px),
+    #23273A;
+  box-shadow: inset 0 0 0 6px #10121E;
+  opacity: .9;
+}
+.laptop-base::after { /* trackpad */
+  content: ""; position: absolute; left: 50%; top: 320px; width: 300px; height: 190px; margin-left: -150px;
+  border-radius: 14px; background: linear-gradient(180deg, #262A3E, #20233A);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+}
+.laptop-lip { /* canto frontal de la base */
+  position: absolute; left: 0; top: 553px; width: 900px; height: 18px;
+  transform: translateZ(560px);
+  border-radius: 0 0 18px 18px;
+  background: linear-gradient(180deg, #2E3248, #12141F);
+}
+.laptop-lid {
+  position: absolute; left: 20px; top: 0; width: 860px; height: 550px;
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(-90deg);
+}
+.lid-face { position: absolute; inset: 0; border-radius: 22px 22px 8px 8px; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.lid-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(160deg, #343952 0%, #1C1F31 50%, #14172A 100%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.lid-back::after { /* reflejo satinado */
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.07) 45%, transparent 60%);
+}
+.lid-front {
+  background: #07080D;
+  padding: 18px 18px 17px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 40px 80px -20px rgba(0,0,0,.6);
+}
+.lid-front::before { /* cámara */
+  content: ""; position: absolute; top: 7px; left: 50%; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: #1B1E2B;
+}
+.screen {
+  position: relative; width: 824px; height: 515px; overflow: hidden; border-radius: 6px;
+  background: #000;
+}
+.sites {
+  position: absolute; left: 0; top: 0;
+  width: 1280px; height: 800px;
+  transform-origin: 0 0;
+}
+.screen .sites { transform: scale(.64375); } /* 824 / 1280 */
+.screen-power {  /* encendido: degradado de marca a pantalla completa */
+  position: absolute; inset: 0; z-index: 5; opacity: 0;
+  background:
+    radial-gradient(60% 80% at 30% 30%, rgba(53,201,254,.9), transparent 60%),
+    radial-gradient(60% 80% at 75% 70%, rgba(254,138,46,.9), transparent 60%),
+    linear-gradient(120deg, #1F5BFF, #7A1FE0 40%, #E42678 75%, #FE8A2E);
+}
+.screen-power .logo-sphere { position: absolute; left: 50%; top: 50%; width: 120px; height: 120px; margin: -60px 0 0 -60px; filter: brightness(1.2) saturate(1.2); }
+.screen-flash { position: absolute; inset: 0; z-index: 6; background: #fff; opacity: 0; }
+.screen-glare {
+  position: absolute; inset: 0; z-index: 7; pointer-events: none;
+  background: linear-gradient(115deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 38%);
+}
+.laptop-shadow {
+  position: absolute; left: 50%; top: 50%; z-index: 1;
+  width: 1100px; height: 160px; margin: -80px 0 0 -550px;
+  background: radial-gradient(closest-side, rgba(0,0,0,.55), transparent);
+  filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+}
+/* Línea de luz que sale por la ranura mientras la tapa se abre */
+.slit-light {
+  position: absolute; left: 50%; top: 50%; z-index: 4;
+  width: 760px; height: 4px; margin: -2px 0 0 -380px;
+  border-radius: 4px;
+  background: var(--sitiio-gradient);
+  box-shadow: 0 0 30px 6px rgba(187,55,245,.6), 0 0 80px 20px rgba(228,38,120,.35);
+  opacity: 0; transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* --- PHONE MOCKUP ------------------------------------------------------
+   Desktop: entra junto a la laptop en ORBE (demuestra responsive).
+   Mobile: es el dispositivo protagonista en lugar de la laptop.        */
+.phone {
+  position: absolute; left: 50%; top: 50%;
+  width: 300px; height: 620px; margin: -310px 0 0 -150px;
+  border-radius: 48px; padding: 10px;
+  background: linear-gradient(160deg, #2E3248, #0B0C12 60%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.12), 0 50px 90px -20px rgba(0,0,0,.55);
+  opacity: 0;
+  will-change: transform, opacity;
+  pointer-events: auto;
+}
+.phone-screen { position: relative; width: 280px; height: 600px; border-radius: 38px; overflow: hidden; background: #000; }
+.phone-screen .sites { width: 390px; height: 836px; transform: scale(.71795); } /* 280 / 390 */
+.phone-notch { position: absolute; z-index: 8; top: 10px; left: 50%; width: 92px; height: 26px; margin-left: -46px; border-radius: 20px; background: #000; }

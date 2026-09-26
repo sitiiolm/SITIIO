@@ -1,0 +1,29 @@
+/* ---------------------------------------------------------------------
+   CONTACT INFO + FOOTER
+   --------------------------------------------------------------------- */
+.contact-strip {
+  position: relative; z-index: 3;
+  display: grid; grid-template-columns: 1.25fr 1fr 1fr;
+  border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark);
+}
+.contact-item { display: flex; gap: 14px; align-items: flex-start; padding: 22px 24px; transition: background .4s; }
+.contact-item + .contact-item { border-left: 1px solid var(--line-dark); }
+.contact-item:hover { background: rgba(255,255,255,.04); }
+.ci-icon { flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: rgba(255,255,255,.06); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
+.contact-address .ci-icon { background: var(--sitiio-gradient); box-shadow: 0 8px 24px -6px rgba(228,38,120,.6); }
+.ci-icon svg { width: 20px; height: 20px; }
+.contact-item .label { display: block; color: var(--text-secondary-dark); font-size: 11px; }
+.contact-item strong { display: block; margin-top: 6px; font-family: var(--font-display); font-weight: 600; font-size: 17px; line-height: 1.25; color: var(--text-primary-dark); }
+.contact-item small { display: block; margin-top: 2px; font-size: 13.5px; color: var(--text-secondary-dark); }
+.ci-link { display: inline-block; margin-top: 8px; font-style: normal; font-weight: 600; font-size: 13.5px; background: var(--sitiio-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+.site-footer { position: relative; overflow: hidden; background: var(--sitiio-navy); color: var(--text-primary-dark); padding: 16vh 0 0; }
+.footer-head { margin-bottom: 7vh; }
+.footer-head .label { color: var(--text-secondary-dark); margin-bottom: 16px; }
+.footer-head h2 { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h1); line-height: 1; letter-spacing: -.02em; }
+.site-footer .giant-mark { position: relative; left: auto; bottom: auto; transform: none; display: block; text-align: center; margin-top: 8vh; margin-bottom: -.3em; font-size: 26vw; line-height: .8; }
+.footer-row { position: relative; z-index: 3; margin-top: 28px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 14px; color: var(--text-secondary-dark); }
+.footer-row nav { display: flex; gap: 22px; }
+.footer-row a:hover { color: #fff; }
+.footer-row .brand { font-size: 15px; }
+.footer-row .brand .logo-sphere { width: 20px; height: 20px; }
+.giant-mark { position: absolute; z-index: 1; left: 50%; bottom: 0; transform: translate(-50%, 46%); font-family: var(--font-display); font-weight: 800; font-size: 30vw; line-height: 1; letter-spacing: -.05em; color: var(--sitiio-navy-900); white-space: nowrap; pointer-events: none; opacity: .9; }

@@ -1,0 +1,73 @@
+/* ---------------------------------------------------------------------
+   DESIGN TOKENS
+   Colores muestreados directamente del logo de SITIIO (esfera de bandas).
+   --------------------------------------------------------------------- */
+:root {
+  /* Espectro de marca (del logo) */
+  --sitiio-cyan:    #35C9FE;  /* banda inferior izquierda del logo */
+  --sitiio-blue:    #1F5BFF;  /* azul eléctrico */
+  --sitiio-indigo:  #2A1FD0;  /* azul profundo de las bandas */
+  --sitiio-purple:  #6A0BBB;  /* morado */
+  --sitiio-violet:  #BB37F5;  /* violeta (brillos) */
+  --sitiio-magenta: #E42678;  /* magenta */
+  --sitiio-pink:    #FD6CAC;  /* rosa */
+  --sitiio-coral:   #FE5551;  /* coral (transición rosa → naranja) */
+  --sitiio-orange:  #FE8A2E;  /* naranja */
+  --sitiio-yellow:  #FFD43D;  /* amarillo: solo chispas, nunca texto sobre blanco */
+
+  /* Degradados oficiales */
+  --sitiio-gradient: linear-gradient(90deg, #1F5BFF 0%, #7A1FE0 34%, #E42678 66%, #FE8A2E 100%);
+  --sitiio-gradient-cool: linear-gradient(90deg, #35C9FE 0%, #1F5BFF 45%, #BB37F5 100%);
+  --sitiio-gradient-warm: linear-gradient(90deg, #E42678 0%, #FE5551 45%, #FFD43D 100%);
+  --sitiio-glow: radial-gradient(closest-side, rgba(122, 31, 224, .45), rgba(122, 31, 224, 0));
+
+  /* Fondos */
+  --background-light:  #FFFFFF;
+  --background-mist:   #F5F4FB;
+  --background-dark:   #070A1F;  /* navy noche */
+  --sitiio-navy:       #070A1F;
+  --sitiio-navy-900:   #0E1236;
+  --sitiio-plum:       #150A2E;
+
+  /* Tinta */
+  --text-primary:        #0B0D1A;
+  --text-secondary:      #5B5F7A;
+  --text-primary-dark:   #F4F3FF;
+  --text-secondary-dark: #A6A8C8;
+  --line-light: #E6E4F2;
+  --line-dark:  rgba(255, 255, 255, .10);
+
+  /* Tipografía (@font-face en fonts.css) */
+  --font-display: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  --font-body:    'Manrope', 'Segoe UI', system-ui, sans-serif;
+  --font-mono:    'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+
+  /* Tipografías de los proyectos de ejemplo */
+  --font-fraunces:  'Fraunces', Georgia, serif;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-barlow:    'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-unbounded: 'Unbounded', 'Arial Black', sans-serif;
+
+  --fs-display-xl: clamp(52px, 7.4vw, 132px);
+  --fs-display-l:  clamp(40px, 6vw, 88px);
+  --fs-h1:         clamp(36px, 4.4vw, 64px);
+  --fs-h2:         clamp(28px, 2.8vw, 40px);
+  --fs-body-l:     clamp(17px, 1.4vw, 20px);
+  --fs-label:      13px;
+
+  /* Layout */
+  --container: 1320px;
+  --gutter: clamp(16px, 4.4vw, 64px);
+  --radius-surface: 20px;
+  --radius-small: 12px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+
+  /* Logo oficial de SITIIO (esfera) */
+  --sitiio-logo: url('/images/branding/logo-sitiio.webp');
+
+  /* Grano/ruido sutil para fondos (SVG inline, sin archivos externos) */
+  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}

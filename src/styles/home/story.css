@@ -1,0 +1,113 @@
+/* ---------------------------------------------------------------------
+   STORY TRACK (Escenas 01 → 08)
+   Un solo "plano secuencia": una sección alta (track) con un escenario
+   fijo (sticky stage). El progreso del scroll controla todo vía JS.
+   --------------------------------------------------------------------- */
+.track { position: relative; }
+.stage {
+  position: sticky; top: 0;
+  height: 100vh; height: 100svh;
+  overflow: hidden;
+}
+#story { height: 1060vh; } /* el motor recalcula según breakpoint */
+#story .stage { background: var(--stage-bg, var(--sitiio-navy)); color: var(--stage-fg, var(--text-primary-dark)); }
+
+/* Luces ambientales (glow difuso detrás del protagonista) */
+.ambient { position: absolute; inset: 0; pointer-events: none; }
+.ambient .glow {
+  position: absolute; left: 50%; top: 50%;
+  width: 70vmax; height: 70vmax; margin: -35vmax 0 0 -35vmax;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--c, rgba(122,31,224,.5)), transparent);
+  opacity: .55;
+  will-change: transform;
+}
+.particles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* --- SITIIO HERO ------------------------------------------------------ */
+.hero-copy {
+  position: absolute; z-index: 5;
+  left: 0; right: 0; top: 50%;
+  max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter);
+  transform: translateY(-46%);
+  will-change: transform, opacity;
+}
+.hero-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--fs-display-xl); line-height: .92; letter-spacing: -.04em;
+}
+.hero-title .line { white-space: nowrap; }
+.hero-sub {
+  margin-top: 32px; max-width: 30ch;
+  font-size: var(--fs-body-l); line-height: 1.55; color: var(--text-secondary-dark);
+  opacity: 0; transform: translateY(16px); transition: opacity 1s .35s var(--ease-out), transform 1s .35s var(--ease-out);
+}
+.hero-ctas {
+  display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px;
+  opacity: 0; transform: translateY(16px); transition: opacity 1s .5s var(--ease-out), transform 1s .5s var(--ease-out);
+}
+.is-in .hero-sub, .is-in .hero-ctas { opacity: 1; transform: none; }
+
+.hero-meta {
+  position: absolute; z-index: 5; left: var(--gutter); right: var(--gutter); bottom: 32px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+  color: var(--text-secondary-dark);
+}
+.scroll-hint { display: flex; align-items: center; gap: 12px; }
+.scroll-hint .bars { position: relative; width: 14px; height: 30px; }
+.scroll-hint .bars i { position: absolute; top: 0; width: 3px; height: 100%; border-radius: 2px; background: rgba(255,255,255,.25); overflow: hidden; }
+.scroll-hint .bars i:first-child { left: 0; }
+.scroll-hint .bars i:last-child { right: 0; }
+.scroll-hint .bars i:last-child::after {
+  content: ""; position: absolute; left: 0; right: 0; top: -40%; height: 40%;
+  background: var(--sitiio-gradient-warm); animation: scroll-drop 1.8s var(--ease-in-out) infinite;
+}
+@keyframes scroll-drop { to { top: 100%; } }
+
+/* --- LA ESFERA (logo) como personaje ---------------------------------- */
+.sphere {
+  position: absolute; left: 50%; top: 50%; z-index: 3;
+  width: 560px; height: 560px; margin: -280px 0 0 -280px;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+.sphere-float { width: 100%; height: 100%; animation: float 6s ease-in-out infinite; }
+.sphere-tilt {
+  width: 100%; height: 100%;
+  transform: perspective(900px) rotateX(var(--ty, 0deg)) rotateY(var(--tx, 0deg));
+  transition: transform 1.2s var(--ease-out);
+}
+.sphere .logo-sphere { position: relative; width: 100%; height: 100%; filter: drop-shadow(0 30px 60px rgba(122,31,224,.35)); }
+.sphere-glow {
+  position: absolute; inset: -30%;
+  background: radial-gradient(closest-side, rgba(187,55,245,.42), rgba(228,38,120,.18) 55%, transparent);
+  animation: breathe 6s ease-in-out infinite;
+}
+.sphere-shadow {
+  position: absolute; left: 20%; right: 20%; bottom: -12%; height: 10%;
+  background: radial-gradient(closest-side, rgba(31,91,255,.45), transparent);
+  filter: blur(8px); animation: shadow 6s ease-in-out infinite;
+}
+@keyframes float { 50% { transform: translateY(-14px) rotate(2deg); } }
+@keyframes breathe { 50% { transform: scale(1.05); opacity: .8; } }
+@keyframes shadow { 50% { transform: scaleX(.86); opacity: .6; } }
+
+/* Texto de transición (Escena 02) */
+.story-line {
+  position: absolute; z-index: 4; left: 50%; top: 22%;
+  width: min(90vw, 900px); transform: translateX(-50%);
+  text-align: center;
+  font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h1); line-height: 1.05; letter-spacing: -.02em;
+  opacity: 0;
+}
+.story-line em { font-style: normal; }
+
+/* Título detrás de la laptop (Escena 04) — parcialmente tapado por ella */
+.behind-title {
+  position: absolute; z-index: 1; left: 50%; top: 25%;
+  width: min(94vw, 1200px);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: var(--font-display); font-weight: 700; font-size: var(--fs-display-l); line-height: .95; letter-spacing: -.03em;
+  opacity: 0;
+}

@@ -1,0 +1,19 @@
+/* =====================================================================
+   SITIIO — estilos de la Home (storytelling)
+   Mismo orden de cascada que el prototipo aprobado. No reordenar.
+   Los estilos de cada proyecto de ejemplo viven en ./projects/.
+   ===================================================================== */
+@import './home/story.css';
+@import './home/devices.css';
+@import './projects/site.css';
+@import './home/floating-cards.css';
+@import './home/project-copy.css';
+@import './projects/moka.css';
+@import './projects/lume.css';
+@import './projects/nova.css';
+@import './projects/orbe.css';
+@import './home/services.css';
+@import './home/process.css';
+@import './home/final-cta.css';
+@import './home/footer.css';
+@import './home/responsive.css';

@@ -1,0 +1,61 @@
+/* ============ PROJECT: LUMÉ — Beauty Studio ============ */
+.lume { background: #FBF6F3; color: #1C1A1A; }
+.lume .serif { font-family: var(--font-cormorant); }
+.lume-nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 34px 64px; font-size: 14px; letter-spacing: .16em; text-transform: uppercase; }
+.lume-nav .l { display: flex; gap: 34px; }
+.lume-nav .r { justify-self: end; border-bottom: 1px solid #1C1A1A; padding-bottom: 4px; }
+.lume-logo { font-family: var(--font-cormorant); font-size: 40px; font-weight: 500; letter-spacing: .32em; text-transform: uppercase; margin-right: -.32em; }
+.lume-hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: end; padding: 30px 64px 80px; }
+.lume-h1 { font-family: var(--font-cormorant); font-weight: 400; font-size: 150px; line-height: .86; letter-spacing: -.02em; }
+.lume-h1 i { color: #C98C93; }
+.lume-caption { display: flex; gap: 40px; margin-top: 36px; font-size: 15px; letter-spacing: .08em; color: #6D6363; }
+.lume-arch { height: 580px; border-radius: 260px 260px 0 0;
+  background:
+    radial-gradient(40% 30% at 50% 38%, rgba(255,255,255,.85), transparent 70%),
+    radial-gradient(70% 55% at 50% 100%, #D99AA2, transparent 70%),
+    linear-gradient(180deg, #F6E1DB, #EDC3C3 60%, #E2A9AE);
+}
+.lume-arch .orb { position: absolute; left: 50%; top: 30%; width: 170px; height: 220px; margin-left: -85px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #FBEDE7, #E8C1BC 70%); box-shadow: 0 40px 60px -20px rgba(160,90,100,.35); }
+.lume-arch .shoulders { position: absolute; left: 12%; right: 12%; bottom: 0; height: 30%; border-radius: 50% 50% 0 0; background: linear-gradient(180deg, #E9BDB9, #DDA3A6); }
+.lume-services { padding: 40px 64px 60px; }
+.lume-services .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+.lume-services-title { font-size: 64px; font-weight: 400; font-style: italic; }
+.lume-see-all { letter-spacing: .16em; font-size: 13px; }
+.lume-row { display: grid; grid-template-columns: 1fr 140px 90px; padding: 22px 0; border-top: 1px solid #E5D6D0; font-size: 20px; align-items: baseline; }
+.lume-row .name { font-family: var(--font-cormorant); font-size: 34px; }
+.lume-row .muted { color: #8C8080; font-size: 15px; letter-spacing: .08em; }
+.lume-book { margin: 20px 64px 70px; padding: 48px; border-radius: 4px; background: #F2E4DF; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.lume-book-title { font-weight: 400; font-size: 58px; line-height: 1; }
+.lume-btn { display: inline-flex; margin-top: 26px; height: 54px; padding: 0 30px; align-items: center; background: #1C1A1A; color: #FBF6F3; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; }
+.lume-cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; font-size: 15px; }
+.lume-cal b { font-weight: 500; font-size: 11px; letter-spacing: .12em; color: #8C8080; }
+.lume-cal span { padding: 8px 0; border-radius: 50%; }
+.lume-cal .sel { background: #1C1A1A; color: #fff; }
+.lume-cal .dot { background: #E8B4B8; }
+
+@container site (max-width: 600px) {
+  .lume-nav { grid-template-columns: 1fr auto; padding: 56px 22px 16px; }
+  .lume-nav .l { display: none; }
+  .lume-logo { font-size: 28px; }
+  .lume-nav .r { font-size: 11px; }
+  .lume-hero { grid-template-columns: 1fr; padding: 10px 22px 40px; gap: 26px; }
+  .lume-h1 { font-size: 84px; }
+  .lume-arch { height: 360px; order: -1; }
+  .lume-caption { gap: 18px; font-size: 12px; }
+  .lume-services { padding: 20px 22px 30px; }
+  .lume-row { grid-template-columns: 1fr 64px; }
+  .lume-row .muted { display: none; }
+  .lume-row .name { font-size: 26px; }
+  .lume-book { margin: 10px 22px 40px; padding: 26px; grid-template-columns: 1fr; }
+}
+
+/* Tarjetas flotantes de LUMÉ */
+.fcard .fcard-lume-month { font-family: var(--font-cormorant); font-size: 22px; font-weight: 500; }
+.fcard .fcard-lume-kicker { letter-spacing: .14em; }
+.fcard .fcard-lume-ritual { font-family: var(--font-cormorant); font-size: 26px; font-weight: 500; }
+.fcard .lume-pill { background: #1C1A1A; color: #fff; border-radius: 0; letter-spacing: .12em; }
+
+.mini-cal { display: grid; grid-template-columns: repeat(7, 22px); gap: 4px; margin-top: 10px; font-size: 11px; text-align: center; }
+.mini-cal span { height: 22px; line-height: 22px; border-radius: 50%; color: #555; }
+.mini-cal .sel { background: #1C1A1A; color: #fff; }
+.mini-cal .av { background: #F3D2D5; }
