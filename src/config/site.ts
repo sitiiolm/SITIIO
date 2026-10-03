@@ -33,7 +33,7 @@ export const siteConfig = {
       defaultMessage: 'Hola, vi SITIIO y me gustaría cotizar una página web.',
       hours: 'Lun – Vie · 8:00 am – 6:00 pm',
     },
-    email: 'sitiiolm@gmail.com',
+    email: 'sitiio@jamcst.com',
     emailNote: 'Te respondemos en menos de 24 h',
     address: {
       line1: 'Ciudad del Saber, Edificio 347-AB',
